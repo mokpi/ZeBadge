@@ -61,8 +61,6 @@ fun BinaryImageEditor(
 ) {
     var last by remember { mutableStateOf<Bitmap?>(null) }
 
-    val isImageBinary = remember { bitmap.isBinary() }
-
     Column {
         Image(
             modifier = Modifier
@@ -78,7 +76,7 @@ fun BinaryImageEditor(
             contentDescription = null,
         )
 
-        if (isImageBinary) {
+        if (bitmap.isBinary()) {
             Text(text = stringResource(id = R.string.remind_binary_image))
         }
 
